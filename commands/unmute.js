@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) =>{
       unmutee.roles.remove(muterole.id).then(() => {
           message.delete()
           unmutee.send(`You have been unmuted in ${message.guild.name} for: ${reason}`).catch(err => console.log(err))
-          message.channel.send(`${unmutee.user.username} has been unmuted!`)
+          message.reply(`:white_check_mark: ${unmutee.user.username} has been unmuted!`)
       })
 
       let embed = new Discord.MessageEmbed()

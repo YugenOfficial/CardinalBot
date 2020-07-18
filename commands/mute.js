@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) =>{
         mutee.roles.add(muterole.id).then(() => {
             message.delete()
             mutee.send(`Hello, you have been muted in ${message.guild.name} for: ${reason}`)
-            message.channel.send(`${mutee.user.username} was successfully muted.`)
+            message.reply(`:white_check_mark: ${mutee.user.username} was successfully muted.`)
         })
     
         let embed = new Discord.MessageEmbed()

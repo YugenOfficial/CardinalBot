@@ -5,12 +5,11 @@ const fetch = require('node-fetch');
 
 const bot = new Discord.Client({disableEveryone: true});
 
-
 bot.on("ready", async () => {
     console.log('This bot is online!');
     });
 
-    let lol = ['Youtube📺', 'the world burn🔥', 'the stars☄️', 'apples rot🍎', 'nature documentaries🌲', 'yoga lessons🧘🏻','anime🖥️'];
+    let lol = ['Youtube📺', 'the world burn🔥', 'the stars☄️', 'apples rot🍎', 'nature documentaries🌲', 'yoga lessons🧘🏻','anime🖥️','you👀'];
     bot.on("ready", () => {
     setInterval(function() {
   
