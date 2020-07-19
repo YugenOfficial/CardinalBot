@@ -33,10 +33,14 @@ bot.on("guildMemberAdd", async member =>{
     const channel = member.guild.channels.cache.find(channel => channel.name === wchannel);
     if (!channel) return;
 
+    let overview = member.guild.channels.cache.find(channel => channel.id === "727880587859329046");
+    let reactrole = member.guild.channels.cache.find(channel => channel.id === "583749407179014144");
+    let intro = member.guild.channels.cache.find(channel => channel.id === "598244799648235530");
+
     if (member.guild.id == "583679863802822657"){
         let uEmbed = new Discord.MessageEmbed()
         .setTitle('**Welcome!**')
-        .setDescription(`Welcome to the server, ${member.user}! Be sure to read the rules here: #overview『💚』, get yourself some roles here: #reaction-roles『👥』 and introduce yourself here: #introduction『🤙』🎉🥳`)
+        .setDescription(`Welcome to the server, ${member.user}! Be sure to read the rules here: ${overview}, get yourself some roles here: ${reactrole} and introduce yourself here: ${intro} 🎉🥳`)
         .setColor(0x1efae8)
         .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
         channel.send(uEmbed)
