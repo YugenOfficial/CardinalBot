@@ -60,14 +60,14 @@ bot.on("messageDelete", async(message) => {
 
     let mchannels = JSON.parse(fs.readFileSync('./mchannels.json', "utf8"));
 
-    if (!mchannels[member.guild.id]){
-        mchannels[member.guild.id] = {
+    if (!mchannels[message.guild.id]){
+        mchannels[message.guild.id] = {
                mchannels: botconfig.mchannel
     }
     }
 
-    let mchannel = mchannels[member.guild.id].mchannels;
-    const channel = member.guild.channels.cache.find(channel => channel.name === mchannel);
+    let mchannel = mchannels[message.guild.id].mchannels;
+    const channel = message.guild.channels.cache.find(channel => channel.name === mchannel);
     if (!channel) return;
 
     let delEmbed = new Discord.MessageEmbed()
