@@ -33,12 +33,23 @@ bot.on("guildMemberAdd", async member =>{
     const channel = member.guild.channels.cache.find(channel => channel.name === wchannel);
     if (!channel) return;
 
-    let uEmbed = new Discord.MessageEmbed()
+    if (member.guild.id == "583679863802822657"){
+        let uEmbed = new Discord.MessageEmbed()
+        .setTitle('**Welcome!**')
+        .setDescription(`Welcome to the server, ${member.user}! Be sure to read the rules here: #overview『💚』, get yourself some roles here: #reaction-roles『👥』 and introduce yourself here: #introduction『🤙』🎉🥳`)
+        .setColor(0x1efae8)
+        .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+        channel.send(uEmbed)
+    } else {
+        let uEmbed = new Discord.MessageEmbed()
         .setTitle('**Welcome!**')
         .setDescription(`Welcome to the server, ${member.user}! Be sure to read the rules! 🎉🥳`)
         .setColor(0x1efae8)
         .setThumbnail(member.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
-    channel.send(uEmbed)
+        channel.send(uEmbed)
+    }
+
+    
 })
 
 const fs = require("fs");
