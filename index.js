@@ -69,6 +69,7 @@ bot.on("messageDelete", async(message) => {
     let mchannel = mchannels[message.guild.id].mchannels;
     const channel = message.guild.channels.cache.find(channel => channel.name === mchannel);
     if (!channel) return;
+    if (!message.content) return;
 
     let delEmbed = new Discord.MessageEmbed()
     .setAuthor(message.author.tag, message.author.avatarURL)
