@@ -56,6 +56,30 @@ bot.on("guildMemberAdd", async member =>{
     
 })
 
+bot.on("messageDelete", async(message) => {
+
+    let mchannels = JSON.parse(fs.readFileSync('./mchannels.json', "utf8"));
+
+    if (!mchannels[member.guild.id]){
+        mchannels[member.guild.id] = {
+               mchannels: botconfig.mchannel
+    }
+    }
+
+    let mchannel = mchannels[member.guild.id].mchannels;
+    const channel = member.guild.channels.cache.find(channel => channel.name === mchannel);
+    if (!channel) return;
+
+    let delEmbed = new Discord.MessageEmbed()
+    .setAuthor(message.author.tag, message.author.avatarURL)
+    .setThumbnail(message.author.avatarURL({ format: 'png', dynamic: true, size: 1024 }))
+    .setColor(0xFF0000)
+    .setDescription("A message from a user was deleted!")
+    .addField("Message", message.content)
+    .setTimestamp();
+    channel.send(delEmbed)
+})
+
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
