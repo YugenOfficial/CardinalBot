@@ -75,7 +75,7 @@ bot.on("messageDelete", async(message) => {
     .setAuthor(message.author.tag, message.author.avatarURL)
     .setThumbnail(message.author.avatarURL({ format: 'png', dynamic: true, size: 1024 }))
     .setColor(0xFF0000)
-    .setDescription("A message from a user was deleted!")
+    .setDescription(`A message from a user was deleted in ${message.guild.channel.name}!`)
     .addField("Message", message.content)
     .setTimestamp();
     channel.send(delEmbed)
