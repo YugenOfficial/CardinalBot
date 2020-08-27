@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) =>{
 
     if(!args[0]) return message.reply("please tag the user you wish to be muted.")
     let mutee = message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[0])
-    if (!mutee) return message.reply("please tag the user you wish to be muted.")
+    if (!mutee) return message.reply("please tag the user you wish to be muted. Correct usage of the command is `sctempmute <@person> <time> <reason>`.")
     if (mutee.id === message.author.id) return message.reply('You can not mute yourself.')
     if (mutee.id === '712962304374866001') return message.reply("I will not mute myself. Nice try.")
     
