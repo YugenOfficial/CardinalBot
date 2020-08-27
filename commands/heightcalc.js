@@ -7,6 +7,10 @@ module.exports.run = async (bot, message, args) =>{
         return message.reply('in order for me to calculate your height, you will need to tell me your height in centimeters. Correct usage: `scheightcalc <height>`')
     }
 
+    if (isNaN(args[1])){
+        return message.reply('your height needs to be a number.')
+    }
+
     if(args[1]>271 || args[1]<50){
         return message.reply('stop bullshitting me.')
     }
