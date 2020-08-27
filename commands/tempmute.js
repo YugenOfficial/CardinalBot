@@ -16,9 +16,9 @@ module.exports.run = async (bot, message, args) =>{
     let mchannel = mchannels[message.guild.id].mchannels;
 
     if (!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return message.channel.send("You do not have permission to use this command.")
-    if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("I don't have permission to use this command")
+    if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send("I don't have permission to use this command.")
 
-    if(!args[0]) return message.reply("please tag the user you wish to be muted.")
+    if(!args[0]) return message.reply("please tag the user you wish to be muted. Correct usage of the command is `sctempmute <@person> <time> <reason>`.")
     let mutee = message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[0])
     if (!mutee) return message.reply("please tag the user you wish to be muted. Correct usage of the command is `sctempmute <@person> <time> <reason>`.")
     if (mutee.id === message.author.id) return message.reply('You can not mute yourself.')
