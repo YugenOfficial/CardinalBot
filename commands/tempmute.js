@@ -98,7 +98,7 @@ module.exports.run = async (bot, message, args) =>{
 
         
     } else {
-        message.channel.say('This user is already muted.')
+        message.channel.send('This user is already muted.')
     }
 }
 

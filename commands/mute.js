@@ -70,7 +70,7 @@ module.exports.run = async (bot, message, args) =>{
         if (sChannel){   
             sChannel.send(embed)}
     } else {
-        message.channel.say('This user is already muted.')
+        message.channel.send('This user is already muted.')
     }
 }
 
