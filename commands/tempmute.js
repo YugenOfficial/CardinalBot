@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 const botconfig = require("../botconfig.json");
 const fs = require('fs')
+const ms = require('ms')
 
 module.exports.run = async (bot, message, args) =>{
 
@@ -23,7 +24,7 @@ module.exports.run = async (bot, message, args) =>{
     if (mutee.id === message.author.id) return message.reply('You can not mute yourself.')
     if (mutee.id === '712962304374866001') return message.reply("I will not mute myself. Nice try.")
     
-    let time = args[2];
+    let time = args[1];
     if (!time){
         return message.reply('you did not specify a time!') 
     }
