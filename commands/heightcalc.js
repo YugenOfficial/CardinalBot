@@ -4,18 +4,18 @@ const botconfig = require("../botconfig.json");
 module.exports.run = async (bot, message, args) =>{
 
     if(!args[1]){
-        return message.channel.reply('in order for me to calculate your height, you will need to tell me your height in centimeters. Correct usage: `scheightcalc <height>`')
+        return message.reply('in order for me to calculate your height, you will need to tell me your height in centimeters. Correct usage: `scheightcalc <height>`')
     }
 
     if(args[1]>271 || args[1]<50){
-        return message.channel.reply('stop bullshitting me.')
+        return message.reply('stop bullshitting me.')
     }
 
     if(args[1] == 272){
-        return message.channel.reply('you are as tall as the tallest man who ever lived! Or you are just lying, which is probably the case.')
+        return message.reply('you are as tall as the tallest man who ever lived! Or you are just lying, which is probably the case.')
     }
 
-    message.channel.reply(`your height is ${args[0]}cm!`)
+    message.reply(`your height is ${args[0]}cm!`)
     
 }
         
