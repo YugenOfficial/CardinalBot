@@ -15,21 +15,21 @@ module.exports.run = async (bot, message, args) =>{
         (uReply === "paper" && replies[result] === "rock") ||
         (uReply === "scissors" && replies[result] === "paper")) {
             let sEmbed = new Discord.MessageEmbed()
-            .setTitle(`Rock-Paper-Scissors/${message.author.username} vs ${bot.user.username}`)
+            .setTitle(`Rock-Paper-Scissors - ${message.author.username} vs ${bot.user.username}`)
             .setDescription(`**${uReply}** vs **${replies[result]}**\nYou have won!`)
             .setThumbnail("https://imgur.com/cUazPIZ.png")
             .setColor(0xFEED25)
             message.channel.send(sEmbed);
         } else if (uReply === replies[result]){
             let sEmbed = new Discord.MessageEmbed()
-            .setTitle(`Rock-Paper-Scissors/${message.author.username} vs ${bot.user.username}`)
+            .setTitle(`Rock-Paper-Scissors - ${message.author.username} vs ${bot.user.username}`)
             .setDescription(`**${uReply}** vs **${replies[result]}**\nIt's a tie!`)
             .setThumbnail("https://imgur.com/sV2Qn4N.png")
             .setColor(0xFEAC25)
             message.channel.send(sEmbed);
         } else {
             let sEmbed = new Discord.MessageEmbed()
-            .setTitle(`Rock-Paper-Scissors/${message.author.username} vs ${bot.user.username}`)
+            .setTitle(`Rock-Paper-Scissors - ${message.author.username} vs ${bot.user.username}`)
             .setDescription(`**${uReply}** vs **${replies[result]}**\nYou lost!`)
             .setThumbnail('https://imgur.com/YTDiRNq.png')
             .setColor(0xFF1C1C)

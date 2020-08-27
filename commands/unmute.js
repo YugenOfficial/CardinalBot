@@ -32,7 +32,6 @@ module.exports.run = async (bot, message, args) =>{
     if (unmutee.roles.cache.has(muterole.id)){
 
       unmutee.roles.remove(muterole.id).then(() => {
-          message.delete()
           unmutee.send(`You have been unmuted in ${message.guild.name} for: ${reason}`).catch(err => console.log(err))
           message.reply(`:white_check_mark: ${unmutee.user.username} has been unmuted!`)
       })

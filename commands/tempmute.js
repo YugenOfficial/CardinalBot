@@ -23,6 +23,11 @@ module.exports.run = async (bot, message, args) =>{
     if (mutee.id === message.author.id) return message.reply('You can not mute yourself.')
     if (mutee.id === '712962304374866001') return message.reply("I will not mute myself. Nice try.")
     
+    let time = args[2];
+    if (!time){
+        return message.reply('you did not specify a time!') 
+    }
+
     let reason = args.slice(2).join(" ");
     if(!reason) reason = "No reason given"
 
@@ -53,31 +58,52 @@ module.exports.run = async (bot, message, args) =>{
     if (!mutee.roles.cache.has(muterole.id)){
 
         mutee.roles.add(muterole.id).then(() => {
-            mutee.send(`Hello, you have been muted in ${message.guild.name} for: ${reason}`)
-            message.reply(`:white_check_mark: ${mutee.user.username} was successfully muted.`)
+            mutee.send(`Hello, you have been muted in ${message.guild.name} for: ${reason}. Your mute will last ${time}.`)
+            message.reply(`:white_check_mark: ${mutee.user.username} was successfully muted for ${ms(ms(time))}.`)
         })
     
         let embed = new Discord.MessageEmbed()
         .setColor(0x9A9A9A)
         .setAuthor(`${message.guild.name} ModLogs`, message.guild.iconURL())
-        .addField("Moderation:", "mute")
+        .addField("Moderation:", "tempmute")
         .addField("Mutee:", mutee.user.username)
         .addField("Moderator:", message.author.username)
+        .addField("Time:", time)
         .addField("Reason:", reason)
         .addField("Date:", message.createdAt)
     
         let sChannel = message.guild.channels.cache.find(c => c.name === mchannel)
         if (sChannel){   
-            sChannel.send(embed)}
+            sChannel.send(embed)
+        }
+
+        setTimeout(function(){
+            mutee.roles.remove(muterole.id).then(() => {
+                let uembed = new Discord.MessageEmbed()
+                .setColor(0xd2ffbf)
+                .setAuthor(`${message.guild.name} ModLogs`, message.guild.iconURL())
+                .addField("Moderation:", "unmute")
+                .addField("Mutee:", mutee.user.username)
+                .addField("Moderator:", "Automatic Unmute")
+                .addField("Date:", message.createdAt)
+
+                let uChannel = message.guild.channels.cache.find(c => c.name === mchannel)
+                if (uChannel){
+                    sChannel.send(uembed)
+                }
+
+            })
+        }, ms(time));
+
+        
     } else {
         message.channel.say('This user is already muted.')
     }
 }
 
 module.exports.config = {
-    name: "mute", 
-    noallias: "No Aliases",
-    aliases: [],
-    description: "Mutes the person tagged",
+    name: "tempmute", 
+    aliases: ['tmute'],
+    description: "Mutes the person tagged for a specific time",
     accessableby: "People who can manage roles"
 }
