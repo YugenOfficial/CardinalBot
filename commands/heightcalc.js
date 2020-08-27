@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) =>{
         message.reply('stop bullshitting me.')
     } else if (args[1] == 272){
         message.reply('you are as tall as the tallest man who ever lived! Or you are just lying, which is probably the case.')
-    } else message.reply(`your height is ${args[0]}cm!`)
+    } else message.reply(`your height is ${args[1]}cm!`)
     
 }
         
