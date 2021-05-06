@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) =>{
             .setThumbnail(bot.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
             .setTimestamp()
             .setDescription(`These are the available commands for Cardinal.\n Cardinal's prefix is **${prefix}**.\nFor information about a specific command, do "${prefix}help <command>" instead.`)
-            .addField(`Commands:`, "➖Basic: dog, cat, meme, 8ball, coinflip, ,rps, pp, heightcalc\n➖Informative: info, userinfo, serverinfo, ping, uptime\n➖Moderation: kick, ban, unban, mute, tempmute, unmute, clear, say, announce")
+            .addField(`Commands:`, "➖Basic: dog, cat, meme, 8ball, coinflip, ,rps, pp, heightcalc, poll\n➖Informative: info, userinfo, serverinfo, ping, uptime\n➖Moderation: kick, ban, unban, mute, tempmute, unmute, clear, say, announce")
             .setFooter("Cardinal", bot.user.displayAvatarURL())
             message.channel.send(sembed)
         }
