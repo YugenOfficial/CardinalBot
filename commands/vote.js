@@ -10,14 +10,14 @@ module.exports.run = async (bot, message, args) =>{
   let msgargs = args.slice(1).join(" ");
 
   let uEmbed = new Discord.MessageEmbed()
-        .setTitle("📊" + msgargs)
+        .setTitle("Time to vote! 📊")
+        .setDescription(msgargs)
         .setColor(0xd62bb1)
 
-        await message.channel.send(uEmbed).then(messageReaction => {
-          await messageReaction.react("👍")
-          await messageReaction.react("👎")
-          message.delete.catch(console.error);
-        })
+  let msgEmbed = await message.channel.send(uEmbed);
+  await msgEmbed.react("👍")
+  await msgEmbed.react("👎")
+  message.delete 
 
   
                  
