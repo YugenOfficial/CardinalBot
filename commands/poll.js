@@ -3,14 +3,14 @@ const botconfig = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) =>{
 
-    const args = message.content.trim().split(/ +/g);
+    const arg = message.content.trim().split(/ +/g);
 
 // Defining the question...
 let question = [];
 
 for (let i = 1; i < args.length; i++) {
-  if (args[i].startsWith('"')) break;
-  else question.push(args[i]);
+  if (arg[i].startsWith('"')) break;
+  else question.push(arg[i]);
 }
 
 question = question.join(' ');
@@ -20,7 +20,7 @@ const choices = [];
 
 const regex = /(["'])((?:\\\1|\1\1|(?!\1).)*)\1/g;
 let match;
-while (match = regex.exec(args.join(' '))) choices.push(match[2]);
+while (match = regex.exec(arg.join(' '))) choices.push(match[2]);
 
 // Creating and sending embed...
 let content = [];
