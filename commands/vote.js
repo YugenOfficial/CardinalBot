@@ -12,7 +12,8 @@ module.exports.run = async (bot, message, args) =>{
   let uEmbed = new Discord.MessageEmbed()
         .setTitle("📊" + msgargs)
         .setColor(0xd62bb1)
-        message.channel.send(uEmbed).then(async (messageReaction)=> {
+
+        await message.channel.send(uEmbed).then(messageReaction => {
           await messageReaction.react("👍")
           await messageReaction.react("👎")
           message.delete.catch(console.error);
