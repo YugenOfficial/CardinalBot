@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) =>{
     return;
   }
 
-  let msgargs = args.slice(1).join(" ");
+  let msgargs = args.slice(0).join(" ");
 
   let uEmbed = new Discord.MessageEmbed()
         .setTitle("Time to vote! 📊")
