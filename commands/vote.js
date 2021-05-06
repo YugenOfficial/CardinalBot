@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) =>{
 
   let uEmbed = new Discord.MessageEmbed()
         .setTitle("Time to vote! 📊")
-        .setDescription("➖" + msgargs)
+        .setDescription(msgargs)
         .setColor(0xd62bb1)
 
   let msgEmbed = await message.channel.send(uEmbed);
