@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const botconfig = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) =>{
-  if (!args[1]){
+  if (!args[0]){
     message.channel.send("You need to write something to vote on.");
     return;
   }
@@ -11,13 +11,13 @@ module.exports.run = async (bot, message, args) =>{
 
   let uEmbed = new Discord.MessageEmbed()
         .setTitle("Time to vote! 📊")
-        .setDescription(msgargs)
+        .setDescription("➖" + msgargs)
         .setColor(0xd62bb1)
 
   let msgEmbed = await message.channel.send(uEmbed);
   await msgEmbed.react("👍")
   await msgEmbed.react("👎")
-  message.delete 
+  message.delete()
 
   
                  
