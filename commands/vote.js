@@ -4,7 +4,7 @@ const botconfig = require("../botconfig.json");
 module.exports.run = async (bot, message, args) =>{
   if (!args[1]){
     message.channel.send("You need to write something to vote on.");
-    break;
+    return;
   }
 
   let msgargs = args.slice(1).join(" ");
